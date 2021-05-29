@@ -3,8 +3,8 @@ async function loginFormHandler(event) {
 	event.preventDefault();
 
 	// get the username and password details
-	const username = document.getElementById("username-login");
-	const password = document.getElementById("password-login");
+	const username = document.querySelector("#username-login").value.trim();
+	const password = document.querySelector("#password-login").value.trim();
 
 	// if both fields are entered, send a fetch request to confirm that the parameters match the info in the database
 	if (username && password) {
@@ -28,5 +28,5 @@ async function loginFormHandler(event) {
 }
 
 document
-	.getElementById("#login-form")
+	.querySelector("#login-form")
 	.addEventListener("submit", loginFormHandler);

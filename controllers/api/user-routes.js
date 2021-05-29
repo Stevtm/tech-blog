@@ -47,37 +47,58 @@ router.post("/", (req, res) => {
 });
 
 // POST login with a user - /api/users/login
-router.post("/users/login", (req, res) => {
+router.post("/login", (req, res) => {
 	// find a user that matches the username in the field
 	User.findOne({
 		where: {
 			username: req.body.username,
 		},
-	}).then((dbUserData) => {
-		// send 400 response if no user with this username exists
-		if (!dbUserData) {
-			res.status(400).json({ message: "No user found with this username." });
-			return;
-		}
+	})
+		.then((dbUserData) => {
+			// send 400 response if no user with this username exists
+			if (!dbUserData) {
+				res.status(400).json({ message: "No user found with this username." });
+				return;
+			}
 
-		// if the username exists, verify that the password is correct
-		const validPassword = dbUserData.checkPassword(req.body.password);
+			// if the username exists, verify that the password is correct
+			const validPassword = dbUserData.checkPassword(req.body.password);
 
-		// check if the password is valid
-		if (!validPassword) {
-			res.status(400).json({ message: "Incorrect password." });
-			return;
-		}
+			// check if the password is valid
+			if (!validPassword) {
+				res.status(400).json({ message: "Incorrect password." });
+				return;
+			}
 
-		// save variables to session
-		req.session.save(() => {
-			req.session.user_id = dbUserData.id;
-			req.sessison.username = dbUserData.username;
-			req.session.loggedIn = true;
+			// save variables to session
+			req.session.save(() => {
+				req.session.user_id = dbUserData.id;
+				req.session.username = dbUserData.username;
+				req.session.loggedIn = true;
 
-			res.json({ user: dbUserData, message: "Successfully logged in." });
+				console.log("JUST LOGGED IN", req.session);
+
+				res.json({ user: dbUserData, message: "Successfully logged in." });
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
 		});
-	});
+});
+
+// POST logout - /api/users/logout
+router.post("/logout", (req, res) => {
+	console.log("ABOUT TO LOG OUT", req.session);
+
+	if (req.session.loggedIn) {
+		req.session.destroy(() => {
+			res.status(204).end();
+		});
+		console.log("DESTROYED", req.session);
+	} else {
+		res.status(404).end();
+	}
 });
 
 // PUT update a user - /api/users/:id
