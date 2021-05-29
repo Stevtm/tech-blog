@@ -10,25 +10,22 @@ const exphbs = require("express-handlebars");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// --- uncomment when connection.js is set up ---
 const sequelize = require("./config/connection");
 
-// --- uncomment when sessions are set up ---
-// const SequelizeStore = require("connect-session-sequelize")(session.Store)
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-// --- uncomment when sessions are set up ---
 // set up sessions
-// const sess = {
-// 	secret: "4g4JCTF3",
-// 	cookie: {},
-// 	resave: false,
-// 	saveUnititialized: true,
-// 	store: new SequelizeStore({
-// 		db: sequelize,
-// 	}),
-// };
+const sess = {
+	secret: "4g4JCTF3",
+	cookie: {},
+	resave: false,
+	saveUnititialized: true,
+	store: new SequelizeStore({
+		db: sequelize,
+	}),
+};
 
-// app.use(session(sess));
+app.use(session(sess));
 
 // require express-handlebars
 const hbs = exphbs.create({});

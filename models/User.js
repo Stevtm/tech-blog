@@ -4,7 +4,10 @@ const bcrypt = require("bcrypt");
 
 // create User model
 class User extends Model {
-	// add password veridication function call here
+	// password verification method
+	checkPassword(password) {
+		return bcrypt.compareSync(password, this.password);
+	}
 }
 
 // define the table columns and configurations
