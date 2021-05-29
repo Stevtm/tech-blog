@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 		include: [
 			{
 				model: User,
-				attributes: ["username"],
+				attributes: ["id", "username"],
 			},
 		],
 	})
@@ -29,13 +29,14 @@ router.get("/:id", (req, res) => {
 		include: [
 			{
 				model: User,
-				attributes: ["username"],
+				attributes: ["id", "username"],
 			},
 		],
 	})
 		.then((dbPostData) => {
 			if (!dbPostData) {
 				res.status(404).json({ message: "No post found with this id." });
+				return;
 			}
 
 			res.status(200).json(dbPostData);
@@ -68,6 +69,7 @@ router.put("/:id", (req, res) => {
 		.then((dbPostData) => {
 			if (!dbPostData) {
 				res.status(404).json({ message: "No post found with this id." });
+				return;
 			}
 
 			res.status(200).json(dbPostData);
@@ -88,6 +90,7 @@ router.delete("/:id", (req, res) => {
 		.then((dbPostData) => {
 			if (!dbPostData) {
 				res.status(404).json({ message: "No post found with this id." });
+				return;
 			}
 
 			res.status(200).json(dbPostData);
