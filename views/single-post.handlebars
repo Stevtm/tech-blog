@@ -1,0 +1,15 @@
+{{!-- post information --}}
+<li>
+    <h2>{{post.title}}</h2>
+    <h3>Created {{post.createdAt}} by {{post.user.username}}</h3>
+    <p>{{post.post_text}}</p>
+</li>
+
+{{!-- field to add comments when the user is logged in --}}
+<form>
+    <div>
+        <label for="comment-text">Comment</label>
+        <input type="text" id="comment-text" name="comment-text">
+    </div>
+    <button type="submit">Submit</button>
+</form>
