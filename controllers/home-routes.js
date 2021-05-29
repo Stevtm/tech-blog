@@ -37,6 +37,14 @@ router.get("/post/:id", (req, res) => {
 				model: User,
 				attributes: ["id", "username"],
 			},
+			{
+				model: Comment,
+				attributes: ["id", "comment_text", "createdAt"],
+				include: {
+					model: User,
+					attributes: ["id", "username"],
+				},
+			},
 		],
 	})
 		.then((dbPostData) => {
@@ -47,6 +55,8 @@ router.get("/post/:id", (req, res) => {
 
 			// serialize data
 			const post = dbPostData.get({ plain: true });
+
+			console.log(post);
 
 			// render page and pass serialized data
 			res.status(200).render("single-post", { post });

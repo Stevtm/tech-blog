@@ -1,9 +1,22 @@
 {{!-- post information --}}
-<li>
-    <h2>{{post.title}}</h2>
-    <h3>Created {{post.createdAt}} by {{post.user.username}}</h3>
-    <p>{{post.post_text}}</p>
-</li>
+
+<ul>
+    <li>
+        <h2>{{post.title}}</h2>
+        <h3>Created {{post.createdAt}} by {{post.user.username}}</h3>
+        <p>{{post.post_text}}</p>
+    </li>
+</ul>
+
+{{!-- comment information --}}
+{{#each post.comments}}
+<ul>
+    <li>
+        <p>{{comment_text}}</p>
+        <h4>Created {{createdAt}} by {{user.username}}</h4>
+    </li>
+</ul>
+{{/each}}
 
 {{!-- field to add comments when the user is logged in --}}
 <form>

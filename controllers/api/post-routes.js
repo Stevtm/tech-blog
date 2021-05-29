@@ -9,6 +9,14 @@ router.get("/", (req, res) => {
 				model: User,
 				attributes: ["id", "username"],
 			},
+			{
+				model: Comment,
+				attributes: ["id", "comment_text", "createdAt"],
+				include: {
+					model: User,
+					attributes: ["id", "username"],
+				},
+			},
 		],
 	})
 		.then((dbPostData) => {
