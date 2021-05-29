@@ -1,0 +1,28 @@
+/* --- header styles --- */
+header {
+	/* box model */
+	display: flex;
+	flex-direction: column;
+}
+
+header nav {
+	/* box model */
+	display: flex;
+	flex-direction: row;
+
+	/* visual decorations */
+	list-style: none;
+}
+
+header nav a {
+	/* box model */
+	padding: 5px 20px;
+
+	/* typography */
+	font-size: 25px;
+}
+
+header h1 {
+	/* box model */
+	padding-left: 20px;
+}
