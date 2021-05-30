@@ -44,6 +44,21 @@ header nav a {
 	text-decoration: none;
 }
 
+header nav button {
+	/* box model */
+	padding: 5px 20px;
+
+	/* typography */
+	font-size: 20px;
+
+	/* visual decorations */
+	background-color: transparent;
+	border: none;
+	color: white;
+	cursor: pointer;
+	text-decoration: none;
+}
+
 header h1 {
 	/* box model */
 	border-radius: 7px;
@@ -56,7 +71,8 @@ header h1 {
 }
 
 /* --- home page styles --- */
-#home-page ul {
+#home-page ul,
+#dashboard ul {
 	/* box model */
 	margin: 0;
 	padding: 0;
@@ -65,7 +81,8 @@ header h1 {
 	list-style-type: none;
 }
 
-#home-page li {
+#home-page li,
+#dashboard li {
 	/* box model */
 	margin: 15px;
 
@@ -111,7 +128,11 @@ header h1 {
 }
 
 /* --- login form styles --- */
-#login-form {
+#login-form,
+#signup-form,
+#create-comment-form,
+#create-post-form,
+#edit-post-form {
 	/* box model */
 	margin: 15px;
 
@@ -128,7 +149,10 @@ header h1 {
 	align-items: center;
 }
 
-#login-form h2 {
+#login-form h2,
+#signup-form h2,
+#create-post-form h2,
+#edit-post-form h2 {
 	/* box model */
 	align-items: center;
 	display: flex;
@@ -142,7 +166,11 @@ header h1 {
 	color: white;
 }
 
-#login-form .input-field {
+#login-form .input-field,
+#signup-form .input-field,
+#create-comment-form .input-field,
+#create-post-form .input-field,
+#edit-post-form .input-field {
 	/* box model */
 	display: flex;
 	flex-direction: column;
@@ -150,7 +178,11 @@ header h1 {
 	width: 100%;
 }
 
-#login-form label {
+#login-form label,
+#signup-form label,
+#create-comment-form label,
+#create-post-form label,
+#edit-post-form label {
 	/* box model */
 	padding: 5px 0;
 
@@ -158,7 +190,10 @@ header h1 {
 	font-size: 20px;
 }
 
-#login-form input {
+#login-form input,
+#signup-form input,
+#create-post-form input,
+#edit-post-form input {
 	/* box model */
 	padding: 10px;
 
@@ -166,7 +201,12 @@ header h1 {
 	font-size: 20px;
 }
 
-#login-form button {
+#login-form button,
+#signup-form button,
+#create-comment-form button,
+#dashboard button,
+#create-post-form button,
+#edit-post-form button {
 	/* box model */
 	padding: 10px;
 	margin: 20px;
@@ -179,14 +219,70 @@ header h1 {
 	cursor: pointer;
 }
 
-#login-form h3 {
+#login-form h3,
+#signup-form h3 {
 	/* box model */
 	padding-bottom: 10px;
 	margin: 0;
 }
 
-#login-form a {
+#login-form a,
+#signup-form a {
 	/* visual decorations */
 	color: blue;
 	text-decoration: none;
+}
+
+/* --- single post page styles ---  */
+#single-post ul,
+#comments ul,
+#dashboard ul {
+	/* box model */
+	margin: 0;
+	padding: 0;
+
+	/* visual decorations */
+	list-style-type: none;
+}
+
+#single-post li,
+#comments li {
+	/* box model */
+	margin: 15px;
+
+	/* visual decorations */
+	border: 4px solid #003f3f;
+}
+
+#single-post p,
+#comments p {
+	/* box model */
+	padding: 20px;
+	margin: 0;
+}
+
+#comment-text,
+#post-content {
+	/* box model */
+	height: 100px;
+	padding: 10px;
+
+	/* typography */
+	font-family: "Roboto", sans-serif;
+	font-size: 20px;
+}
+
+/* --- dashboard styles --- */
+#dashboard .input-field {
+	/* box model */
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	padding: 5px 0;
+	width: 100%;
+}
+
+#dashboard .input-field button a {
+	text-decoration: none;
+	color: inherit;
 }

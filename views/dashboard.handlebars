@@ -1,10 +1,17 @@
-<button><a href="dashboard/create">+ New Post</a></button>
+<article id="dashboard">
 
-<ul>
-    {{#each posts}}
-    <li>
-        <h2><a href="/dashboard/edit/{{id}}">{{title}}</a></h2>
-        <h3>Created {{createdAt}}</h3>
-    </li>
-    {{/each}}
-</ul>
+    <div class="input-field">
+        <button><a href="dashboard/create">+ New Post</a></button>
+    </div>
+
+    <ul>
+        {{#each posts}}
+        <li>
+            <div class="post-header">
+                <h2><a href="/dashboard/edit/{{id}}">{{title}}</a></h2>
+                <h3>{{format_date createdAt}}</h3>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</article>
