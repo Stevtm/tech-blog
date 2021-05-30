@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 	// find all posts by the logged in user
 	Post.findAll({
 		where: {
-			id: req.session.user_id,
+			user_id: req.session.user_id,
 		},
 		include: [
 			{
@@ -37,6 +37,13 @@ router.get("/", (req, res) => {
 			console.log(err);
 			res.status(500).json(err);
 		});
+});
+
+// GET render create page (after clicking the button on the dashboard)
+router.get("/create", (req, res) => {
+	res.status(200).render("create-post", {
+		loggedIn: req.session.loggedIn,
+	});
 });
 
 // GET edit an existing post (after clicking on it)

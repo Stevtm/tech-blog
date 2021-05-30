@@ -57,7 +57,11 @@ router.get("/:id", (req, res) => {
 
 // POST create new post - /api/posts
 router.post("/", (req, res) => {
-	Post.create(req.body)
+	Post.create({
+		title: req.body.title,
+		post_text: req.body.post_text,
+		user_id: req.session.user_id,
+	})
 		.then((dbPostData) => {
 			res.status(200).json(dbPostData);
 		})
