@@ -4,7 +4,7 @@ const { User, Post, Comment } = require("../models");
 
 // GET all posts by the user - /dashboard
 router.get("/", (req, res) => {
-	res.render("dashboard");
+	res.render("dashboard", { loggedIn: true });
 });
 
 module.exports = router;

@@ -6,7 +6,7 @@ const dashboardRoutes = require("./dashboard-routes");
 
 router.use("/api", apiRoutes);
 router.use("/", homeRoutes);
-router.use("/dashboard", homeRoutes);
+router.use("/dashboard", dashboardRoutes);
 
 // send 404 status if any routes other than the above are used
 router.use((req, res) => {

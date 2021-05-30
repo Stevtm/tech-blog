@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 			const posts = dbPostData.map((post) => post.get({ plain: true }));
 
 			// render page and pass serialized data
-			res.status(200).render("home", { posts });
+			res.status(200).render("home", { posts, loggedIn: req.session.loggedIn });
 		})
 		.catch((err) => {
 			console.log(err);
@@ -59,7 +59,9 @@ router.get("/post/:id", (req, res) => {
 			console.log(post);
 
 			// render page and pass serialized data
-			res.status(200).render("single-post", { post });
+			res
+				.status(200)
+				.render("single-post", { post, loggedIn: req.session.loggedIn });
 		})
 		.catch((err) => {
 			console.log(err);
@@ -69,11 +71,25 @@ router.get("/post/:id", (req, res) => {
 
 // show login page - /login
 router.get("/login", (req, res) => {
+	// if the user is already logged in, redirect to the home page
+	if (req.session.loggedIn) {
+		res.redirect("/");
+		return;
+	}
+
+	// otherwise, render login page
 	res.status(200).render("login");
 });
 
 // show signup page - /signup
 router.get("/signup", (req, res) => {
+	// if the user is already logged in, redirect to the home page
+	if (req.session.loggedIn) {
+		res.redirect("/");
+		return;
+	}
+
+	// otherwise, render signup page
 	res.status(200).render("signup");
 });
 
