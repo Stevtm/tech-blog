@@ -69,11 +69,17 @@ router.post("/", (req, res) => {
 
 // PUT update post - /api/posts/:id
 router.put("/:id", (req, res) => {
-	Post.update(req.body, {
-		where: {
-			id: req.params.id,
+	Post.update(
+		{
+			title: req.body.title,
+			post_text: req.body.post_text,
 		},
-	})
+		{
+			where: {
+				id: req.params.id,
+			},
+		}
+	)
 		.then((dbPostData) => {
 			if (!dbPostData) {
 				res.status(404).json({ message: "No post found with this id." });

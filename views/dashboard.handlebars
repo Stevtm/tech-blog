@@ -3,9 +3,8 @@
 <ul>
     {{#each posts}}
     <li>
-        <h2>{{title}}</h2>
-        <h3>Created {{createdAt}} by {{user.username}}</h3>
-        <p>{{post_text}}</p>
+        <h2><a href="/dashboard/edit/{{id}}">{{title}}</a></h2>
+        <h3>Created {{createdAt}}</h3>
     </li>
     {{/each}}
 </ul>
