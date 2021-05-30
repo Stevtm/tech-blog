@@ -74,6 +74,12 @@ router.get("/edit/:id", checkAuth, (req, res) => {
 				res.status(404).json({ message: "No post found this this id." });
 			}
 
+			// check if the post does not belong to the user logged in
+			// if it does not, redirect to the dashboard
+			if (dbPostData.user_id !== req.session.user_id) {
+				res.redirect("/dashboard");
+			}
+
 			// serialize data
 			const post = dbPostData.get({ plain: true });
 

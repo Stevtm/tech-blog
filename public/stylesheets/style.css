@@ -1,8 +1,26 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	/* typography */
+	font-family: "Roboto", sans-serif;
+}
+
+body {
+	/* box model */
+	margin: 0;
+}
+
 /* --- header styles --- */
 header {
 	/* box model */
 	display: flex;
 	flex-direction: column;
+	padding: 10px;
+
+	/* visual decorations */
+	background-color: #003f3f;
 }
 
 header nav {
@@ -19,10 +37,156 @@ header nav a {
 	padding: 5px 20px;
 
 	/* typography */
-	font-size: 25px;
+	font-size: 20px;
+
+	/* visual decorations */
+	color: white;
+	text-decoration: none;
 }
 
 header h1 {
 	/* box model */
-	padding-left: 20px;
+	border-radius: 7px;
+	padding: 5px 20px;
+	margin-left: 20px;
+	width: fit-content;
+
+	/* visual decorations */
+	background-color: white;
+}
+
+/* --- home page styles --- */
+#home-page ul {
+	/* box model */
+	margin: 0;
+	padding: 0;
+
+	/* visual decorations */
+	list-style-type: none;
+}
+
+#home-page li {
+	/* box model */
+	margin: 15px;
+
+	/* visual decorations */
+	border: 4px solid #003f3f;
+}
+
+.post-header {
+	/* box model */
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 10px 20px;
+
+	/* visual decorations */
+	background-color: #003f3f;
+	color: white;
+}
+
+.post-header h2 {
+	/* box model */
+	margin: 0;
+}
+
+.post-header a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.post-header h3 {
+	/* box model */
+	margin: 0;
+
+	/* typography */
+	font-size: 15px;
+}
+
+#home-page p {
+	/* box model */
+	padding: 20px;
+	margin: 0;
+}
+
+/* --- login form styles --- */
+#login-form {
+	/* box model */
+	margin: 15px;
+
+	/* visual decorations */
+	border: 4px solid #003f3f;
+}
+
+.form {
+	/* box model */
+	padding: 10px 20px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#login-form h2 {
+	/* box model */
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 10px 20px;
+	margin: 0;
+
+	/* visual decorations */
+	background-color: #003f3f;
+	color: white;
+}
+
+#login-form .input-field {
+	/* box model */
+	display: flex;
+	flex-direction: column;
+	padding: 5px 0;
+	width: 100%;
+}
+
+#login-form label {
+	/* box model */
+	padding: 5px 0;
+
+	/* typography */
+	font-size: 20px;
+}
+
+#login-form input {
+	/* box model */
+	padding: 10px;
+
+	/* typography */
+	font-size: 20px;
+}
+
+#login-form button {
+	/* box model */
+	padding: 10px;
+	margin: 20px;
+	width: 200px;
+
+	/* typography */
+	font-size: 20px;
+
+	/* visual decorations */
+	cursor: pointer;
+}
+
+#login-form h3 {
+	/* box model */
+	padding-bottom: 10px;
+	margin: 0;
+}
+
+#login-form a {
+	/* visual decorations */
+	color: blue;
+	text-decoration: none;
 }

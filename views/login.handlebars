@@ -1,17 +1,16 @@
-<h1>Login</h1>
-
 <form id="login-form">
-    <div>
-        <label for="username-login">Username</label>
-        <input type="text" id="username-login" name="username-login">
+    <h2>Login</h2>
+    <div class="form">
+        <div class="input-field">
+            <label for="username-login">Username</label>
+            <input type="text" id="username-login" name="username-login">
+        </div>
+        <div class="input-field">
+            <label for="password-login">Password</label>
+            <input type="text" id="password-login" name="password-login">
+        </div>
+        <button type="submit">Login!</button>
+        <h3>Don't have an account? <a href="/signup">Sign Up</a></h3>
     </div>
-    <div>
-        <label for="password-login">Password</label>
-        <input type="text" id="password-login" name="password-login">
-    </div>
-    <button type="submit">Login!</button>
 </form>
-
-<h2>Don't have an account? <a href="/signup">Sign Up</a></h2>
-
 <script src="/javascript/login.js"></script>

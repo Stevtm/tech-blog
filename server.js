@@ -3,8 +3,7 @@ const path = require("path");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 
-// if we need to use helpers
-// const helpers = require("./utils/helpers")
+const helpers = require("./utils/helpers");
 
 // initialize the app
 const app = express();
@@ -28,7 +27,7 @@ const sess = {
 app.use(session(sess));
 
 // require express-handlebars
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 // set up express middleware
 app.use(express.json());
