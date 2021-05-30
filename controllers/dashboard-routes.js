@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const sequelize = require("../config/connection");
 const { User, Post, Comment } = require("../models");
+const checkAuth = require("../utils/auth");
 
 // GET all posts by the user - /dashboard
-router.get("/", (req, res) => {
+router.get("/", checkAuth, (req, res) => {
 	// find all posts by the logged in user
 	Post.findAll({
 		where: {
@@ -40,14 +40,14 @@ router.get("/", (req, res) => {
 });
 
 // GET render create page (after clicking the button on the dashboard)
-router.get("/create", (req, res) => {
+router.get("/create", checkAuth, (req, res) => {
 	res.status(200).render("create-post", {
 		loggedIn: req.session.loggedIn,
 	});
 });
 
 // GET edit an existing post (after clicking on it)
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id", checkAuth, (req, res) => {
 	// get post information for the post
 	Post.findOne({
 		where: {
