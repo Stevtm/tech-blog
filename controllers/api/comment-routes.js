@@ -57,13 +57,17 @@ router.get("/:id", (req, res) => {
 
 // POST create comment - /api/comments
 router.post("/", (req, res) => {
-	Comment.create(req.body)
+	Comment.create({
+		comment_text: req.body.comment_text,
+		user_id: req.session.user_id,
+		post_id: req.body.post_id,
+	})
 		.then((dbCommentData) => {
 			res.status(200).json(dbCommentData);
 		})
 		.catch((err) => {
 			console.log(err);
-			res.status(500).json(err);
+			res.status(400).json(err);
 		});
 });
 

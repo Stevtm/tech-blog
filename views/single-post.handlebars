@@ -19,10 +19,14 @@
 {{/each}}
 
 {{!-- field to add comments when the user is logged in --}}
-<form>
+{{#if loggedIn}}
+<form id="create-comment-form">
     <div>
         <label for="comment-text">Comment</label>
         <input type="text" id="comment-text" name="comment-text">
     </div>
     <button type="submit">Submit</button>
 </form>
+
+<script src="/javascript/create-comment.js"></script>
+{{/if}}
