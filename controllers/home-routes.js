@@ -56,8 +56,6 @@ router.get("/post/:id", (req, res) => {
 			// serialize data
 			const post = dbPostData.get({ plain: true });
 
-			console.log(post);
-
 			// render page and pass serialized data
 			res
 				.status(200)
