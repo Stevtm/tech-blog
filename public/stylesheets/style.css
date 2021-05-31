@@ -59,12 +59,15 @@ header nav button {
 	text-decoration: none;
 }
 
-header h1 {
+h1 {
 	/* box model */
 	border-radius: 7px;
 	padding: 5px 20px;
 	margin-left: 20px;
 	width: fit-content;
+
+	/* typography */
+	font-size: 40px;
 
 	/* visual decorations */
 	background-color: white;
